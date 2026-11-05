@@ -107,6 +107,70 @@ th {
 tbody tr:hover {
     background-color: #f2e3c9;
 }
+.lenteles-skyrius:has(input[value="lengvi"]:checked)
+tbody tr:not(.lengvas)
+{
+    display: none;
+}
+.lenteles-skyrius:has(input[value="vidutiniai"]:checked)
+tbody tr:not(.vidutinis)
+{
+    display: none;
+}
+.lenteles-skyrius:has(input[value="sunkus"]:checked)
+tbody tr:not(.sunkus)
+{
+    display: none;
+}
+footer {
+    background-color: #397c78;
+    color: #f2e3c9;
+    text-align: center;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.rekomendacija {
+    display: none;
+    background-color: #5fdba9;
+    padding: 5px;
+    border-radius: 10px;
+}
+aside:has(option[value="30"]:checked) .rekomendacija[data-laikas="30"]
+{
+    display: block;
+}
+aside:has(option[value="1"]:checked) .rekomendacija[data-laikas="1"]
+{
+    display: block;
+}
+aside:has(option[value="3"]:checked) .rekomendacija[data-laikas="3"]
+{
+    display: block;
+}
+aside:has(option[value="4"]:checked) .rekomendacija[data-laikas="4"]
+{
+    display: block;
+}
+
+.galerijos-nuotrauka {
+    background-color: #5fdba9;
+    padding: 10px;
+    border-radius: 10px;
+}
+.galerijos-nuotrauka img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.galerijos-tinklelis {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+
+
 
 
 

@@ -26,89 +26,131 @@
         </nav>
     </header>
 
+    <div class="puslapio-isdestymas">
 
-    <main>
-        <section>
-            <p>Atrask pajuri</p>
-            <h1>Marsrutai</h1>
-            <p>Pasirink vieną iš šešių
-            galerijoje pavaizduotų maršrutų</p>
-        </section>
+        <main>
+            <section>
+                <p>Atrask pajuri</p>
+                <h1>Marsrutai</h1>
+                <p>Pasirink vieną iš šešių
+                galerijoje pavaizduotų maršrutų</p>
+            </section>
+    
+            <section class="lenteles-skyrius">
+                <h2>Šeši pasivaikščiojimai prie jūros</h2>
+    
+                <fieldset>
+                    <legend>Rodyti maršrutus pagal sudėtingumą</legend>
+                    <input type="radio" name="sudetingumas" value="visi" checked>
+                    <label>Visi</label>
+                    <input type="radio" name="sudetingumas" value="lengvi">
+                    <label>Lengvi</label>
+                    <input type="radio" name="sudetingumas" value="vidutiniai">
+                    <label>Vidutiniai</label>
+                    <input type="radio" name="sudetingumas" value="sunkus">
+                    <label>Sunkus</label>
+                </fieldset>
+    
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Maršrutas</th>
+                            <th>Atstumas</th>
+                            <th>Trukmė</th>
+                            <th>Sudėtingumas</th>
+                        </tr>
+                    </thead>
+    
+                    <tbody>
+                        <tr class="sunkus">
+                            <td>Klaipėdos molas – Melnragės paplūdimys</td>
+                            <td>11,5 km</td>
+                            <td>2h 38min</td>
+                            <td>Sunkus</td>
+                        </tr>
+                    
+                        <tr class="vidutinis">
+                            <td>Olando kepurė – Girulių paplūdimys</td>
+                            <td>3,8 km</td>
+                            <td>51 min.</td>
+                            <td>Vidutinis</td>
+                        </tr>
+                    
+                        <tr class="sunkus">
+                            <td>Smiltynė – Juodkrantė</td>
+                            <td>18,1 km</td>
+                            <td>4h 4min.</td>
+                            <td>Sunkus</td>
+                        </tr>
+                    
+                        <tr class="lengvas">
+                            <td>Juodkrantės prieplauka – Raganų kalnas</td>
+                            <td>1 km</td>
+                            <td>11 min.</td>
+                            <td>Lengvas</td>
+                        </tr>
+                    
+                        <tr class="vidutinis">
+                            <td>Tomo Mano kultūros centras – Parnidžio kopa</td>
+                            <td>2,7 km</td>
+                            <td>38 min.</td>
+                            <td>Vidutinis</td>
+                        </tr>
+                    
+                        <tr class="lengvas">
+                            <td>Nidos centras – Parnidžio pažintinis takas</td>
+                            <td>1,6 km</td>
+                            <td>23 min.</td>
+                            <td>Lengvas</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+    
+            <section>
+                <h2>Prieš kelionę</h2>
+                <ul>
+                    <li>Pasiimk vandens.</li>
+                    <li>Avėk patogius batus.</li>
+                    <li>Pasitikrink orų prognozę.</li>
+                    <li>Laikykis pažymėtų takų.</li>
+                </ul>
+            </section>
+        </main>
+    
+        <aside>
+            <h2>Kelionei pravers</h2>
+            <ul>
+                <li>Vanduo</li>
+                <li>Apsauga nuo vejo</li>
+                <li>Ikrautas telefonas</li>
+            </ul>
+    
+            <form>
+                <p>Pasirink kiek laiko turi</p>
+                <label for="laikas">Pasirink laika:</label>
+    
+                <select id="laikas">
+                    <option> </option>
+                    <option value="30">30min</option>
+                    <option value="1">1val</option>
+                    <option value="3">3val</option>
+                    <option value="4">4val</option>
+                </select>
+    
+                <p class="rekomendacija" data-laikas="30">Trumpam pasivaikščiojimui Nidos centras – Parnidžio pažintinis takas</p>
+                <p class="rekomendacija" data-laikas="1">Maždaug valandai Olando kepurė – Girulių paplūdimys</p>
+                <p class="rekomendacija" data-laikas="3">Iki 3 valandų Klaipėdos molas – Melnragės paplūdimys</p>
+                <p class="rekomendacija" data-laikas="4">Ilgesniam žygiui Smiltynė – Juodkrantė</p>
+            </form>
+    
+        </aside>
+    </div>
 
-        <section>
-            <h2>Šeši pasivaikščiojimai prie jūros</h2>
-
-            <fieldset>
-                <legend>Rodyti maršrutus pagal sudėtingumą</legend>
-                <input type="radio">
-                <label>Visi</label>
-            </fieldset>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Maršrutas</th>
-                        <th>Atstumas</th>
-                        <th>Trukmė</th>
-                        <th>Sudėtingumas</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                <td>Klaipėdos molas – Melnragės paplūdimys</td>
-                <td>11,5 km</td>
-                <td>2h 38min</td>
-                <td>Sunkus</td>
-                </tr>
-                
-                <tr>
-                <td>Olando kepurė – Girulių paplūdimys</td>
-                <td>3,8 km</td>
-                <td>51 min.</td>
-                <td>Vidutinis</td>
-                </tr>
-                
-                <tr>
-                <td>Smiltynė – Juodkrantė</td>
-                <td>18,1 km</td>
-                <td>4h 4min.</td>
-                <td>Sunkus</td>
-                </tr>
-                
-                <tr>
-                <td>Juodkrantės prieplauka – Raganų kalnas</td>
-                <td>1 km</td>
-                <td>11 min.</td>
-                <td>Lengvas</td>
-                </tr>
-                
-                <tr>
-                <td>Tomo Mano kultūros centras – Parnidžio kopa</td>
-                <td>2,7 km</td>
-                <td>38 min.</td>
-                <td>Vidutinis</td>
-                </tr>
-                
-                <tr>
-                <td>Nidos centras – Parnidžio pažintinis takas</td>
-                <td>1,6 km</td>
-                <td>23 min.</td>
-                <td>Lengvas</td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-    </main>
-
-
-    <aside>
-
-    </aside>
 
 
     <footer>
-
+        <p>© 2026 Pajūrio takai</p>
     </footer>
 </body>
 </html>
