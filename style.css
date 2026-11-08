@@ -56,22 +56,26 @@ label span {
 }
 .pradzios-blokas {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 }
 .puslapio-isdestymas {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 35px;
 }
-.pagrindine-nuotrauka img{
+.hero-nuotraukos img{
     width: 100%;
     height: 280px;
     object-fit: cover;
     border-radius: 20px;
+    margin-top: 10px;
 }
-.pagrindine-nuotrauka {
-    margin: 0;
+.hero-nuotraukos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
 }
+
 .main-korteles {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -133,6 +137,10 @@ footer {
 }
 .field-setas {
     border-radius: 20px;
+    text-align: center;
+    background-color: #e6f0e9;
+    padding: 15px;
+    margin-bottom: 20px;
 }
 
 .rekomendacija {
@@ -167,6 +175,17 @@ aside:has(option[value="4"]:checked) .rekomendacija[data-laikas="4"]
     position: relative;
     overflow: hidden;
 }
+
+.galerijos-nuotrauka.lengvas {
+    background-color: #9be59b;
+}
+.galerijos-nuotrauka.vidutinis {
+    background-color: #ffd966;
+}
+.galerijos-nuotrauka.sunkus {
+    background-color: #ffb3b3;
+}
+
 .galerijos-nuotrauka:hover
 .uzdanga {
     bottom: 0;
@@ -253,13 +272,25 @@ main:has(input[value="sunkus"]:checked)
     display: block;
     border-radius: 50px;
     position: absolute;
-    top: 230px;
+    top: 280px;
     left: 300px;
+}
+.gyvunu-korteles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
 }
 .augalu-korteles {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
+}
+.gyvunu-kortele {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px #9aab9e;
 }
 .gamtos-kortele {
     position: relative;
@@ -282,17 +313,77 @@ main:has(input[value="sunkus"]:checked)
     box-sizing: border-box;
     padding: 15px;
 }
+.gyvunu-kortele:hover
+.uzdanga {
+    bottom: 0;
+}
 .gamtos-kortele:hover
 .uzdanga {
     bottom: 0;
 }
+.gyvunu-kortele img {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
 .gamtos-kortele img {
     display: block;
     width: 100%;
     height: 250px;
     object-fit: cover;
-
 }
+
+/*galerijos aside */
+aside {
+    background-color: #e6f0e9;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+aside img {
+    width: 100%;
+    border-radius: 15px;
+}
+.lygis {
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+.lygis.lengvas {
+    background-color: #9be59b;
+}
+.lygis.vidutinis {
+    background-color: #ffd966;
+}
+.lygis.sunkus {
+    background-color: #ff9e9e;
+}
+
+.galerijos-antraste {
+    text-align: center;
+    background-color: #e6f0e9;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+
+    box-shadow: 10px 10px 20px #cfd8d3;
+}
+
+.virsutine-zona {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+.pajurio-ekosistema {
+    padding: 20px;
+}
+
+
 
 
 
@@ -304,6 +395,14 @@ main:has(input[value="sunkus"]:checked)
 
 
 @media (max-width: 600px) {
+    .puslapio-isdestymas {
+        text-align: center;
+    }
+    /*suteikia kad telefone graziai atrodytu  */
+    ul { 
+        padding-left: 20px;
+        text-align: left;
+    }
     nav {
         display: none;
         background-color: #315c4b;
@@ -335,5 +434,15 @@ main:has(input[value="sunkus"]:checked)
     .galerijos-tinklelis {
         display: grid;
         grid-template-columns: 1fr;
-}
+    }
+    .augalu-korteles {
+        grid-template-columns: 1fr;
+    }
+    .gyvunu-korteles {
+        grid-template-columns: 1fr;
+    }
+    .uzdanga {
+        position: static; /*reiskia grizk i normalu html rezima is absolute */
+    }
+
 }
