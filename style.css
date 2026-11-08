@@ -444,5 +444,11 @@ aside img {
     .uzdanga {
         position: static; /*reiskia grizk i normalu html rezima is absolute */
     }
+    .banga {
+        width: 100%;
+    }
+    .virsutine-zona {
+    grid-template-columns: 1fr;
+}
 
 }
