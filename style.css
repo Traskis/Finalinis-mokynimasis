@@ -3,14 +3,18 @@ header {
     justify-content:space-between;
     align-items: center;
     position: relative;
-    padding-left: 50px;
-    padding-right: 50px;
+    /*100vw visas ekranas, 50vw=puse ekrano */
+    padding-inline: clamp(15px, 4vw, 50px);
+
 
     background-color: #f2e8d5;
     border-radius: 20px;
 }
 h1 {
     color: #315c4b;
+}
+header h1{
+    font-size: clamp(2rem, 3vw, 3rem);
 }
 a {
     color: #397c78;
@@ -63,23 +67,54 @@ label span {
     grid-template-columns: 2fr 1fr;
     gap: 35px;
 }
+@media (max-width: 1000px) {
+
+    .puslapio-isdestymas {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.hero-nuotraukos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    gap: clamp(10px, 2vw, 20px);
+
+}
 .hero-nuotraukos img{
     width: 100%;
-    height: 280px;
+    height: clamp(180px, 22vw, 260px);
     object-fit: cover;
     border-radius: 20px;
     margin-top: 10px;
 }
-.hero-nuotraukos {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+@media (max-width: 600px) {
+
+    .hero-nuotraukos {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+aside img {
+    width: 100%;
+    max-width: 450px;
+
+    /* plotis 1600px ir aukstis 900px */
+    aspect-ratio: 16/9;
+
+    object-fit: cover;
+
+    border-radius: 15px;
 }
 
 .main-korteles {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
+    grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: clamp(10px, 2vw, 20px);
 }
 .main-korteles a {
     background-color: #e6f0e9;
@@ -197,8 +232,8 @@ aside:has(option[value="4"]:checked) .rekomendacija[data-laikas="4"]
 }
 .galerijos-tinklelis {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: clamp(10px, 2vw, 20px);
 }
 
 main:has(input[value="lengvi"]:checked)
@@ -228,7 +263,8 @@ main:has(input[value="sunkus"]:checked)
 }
 
 .banga {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     height: 200px;
     background-color: blue;
     position: relative; /*tai pasakojog tai bus atskaitos taskas kitiems */ 
@@ -267,23 +303,42 @@ main:has(input[value="sunkus"]:checked)
 }
 .saule {
     width: 80px;
-    height: 80px;
+
+    /*aukstis plotis tampa 1:1
+    ir tai tampa kvadratas */
+    aspect-ratio: 1;
+    
     background-color: yellow;
-    display: block;
-    border-radius: 50px;
+    border-radius: 50%;
+
     position: absolute;
-    top: 280px;
-    left: 300px;
+
+    top: 20px;
+    right: 20px;
+
 }
+
 .gyvunu-korteles {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
+    gap: 5px;
+    /*
+    repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: clamp(10px, 2vw, 20px);
+    */
 }
 .augalu-korteles {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
+    grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: clamp(10px, 2vw, 20px);
+}
+@media (max-width: 900px) {
+    .gyvunu-korteles {
+        grid-template-columns: 1fr;
+    }
 }
 .gyvunu-kortele {
     position: relative;
@@ -331,14 +386,13 @@ main:has(input[value="sunkus"]:checked)
 .gamtos-kortele img {
     display: block;
     width: 100%;
-    height: 250px;
     object-fit: cover;
 }
 
 /*galerijos aside */
 aside {
     background-color: #e6f0e9;
-    padding: 20px;
+    padding: clamp(15px, 2vw, 25px);
     margin-top: 10px;
     border-radius: 20px;
 }
@@ -372,27 +426,19 @@ aside img {
 
     box-shadow: 10px 10px 20px #cfd8d3;
 }
+.galerijos-antraste h1 {
+    font-size: clamp(2rem, 4vw, 4rem);
+}
 
 .virsutine-zona {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: clamp(15px, 3vw, 30px);
 }
 .pajurio-ekosistema {
     padding: 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 @media (max-width: 600px) {
     .puslapio-isdestymas {
