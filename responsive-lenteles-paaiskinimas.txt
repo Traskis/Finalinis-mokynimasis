@@ -1,0 +1,281 @@
+RESPONSIVE MARSRUTU LENTELES PAAISKINIMAS
+=========================================
+
+Sis failas paaiskina, kaip marsrutu lentele platiame ekrane tampa korteliu
+sąrašu telefone. CSS kode palikti originalus lietuviski pavadinimai bei
+HTML atributas data-label.
+
+
+1. KAIP ATRODO HTML
+-------------------
+
+Lentele HTML faile marsrutai.html apgaubta papildomu konteineriu:
+
+<div class="lenteles-slinkimas">
+    <table>
+        ...
+    </table>
+</div>
+
+Kiekvienos eilutes langeliui td pridetas data-label atributas. Pavyzdziui:
+
+<td data-label="Atstumas">11,5 km</td>
+
+Lenteleje:
+- table yra visa lentele;
+- thead yra stulpeliu antraste;
+- tbody yra lenteles duomenys;
+- tr yra viena lenteles eilute, t. y. vienas marsrutas;
+- td yra tos eilutes duomenu langelis;
+- data-label nurodo langelio pavadinima, kurio reikes korteles vaizde.
+
+Pavyzdyje langelio reiksme yra „11,5 km“, o jo pavadinimas yra „Atstumas“.
+Kiekvienas td turi tureti teisinga data-label reiksme, tokia kaip „Marsrutas“,
+„Atstumas“, „Trukme“ arba „Sudetingumas“.
+
+
+2. PLATAUS EKRANO TAISYKLE
+-------------------------
+
+.lenteles-slinkimas {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.lenteles-slinkimas
+Pasirenka HTML elementa, kurio class yra lenteles-slinkimas. Taskas pries
+pavadinima CSS kalboje reiskia, kad tai yra klases selektorius.
+
+width: 100%;
+Konteineris uzima visa turima tevines srities ploti.
+
+overflow-x: auto;
+Jeigu turinys netelpa horizontaliai, narsykle gali prideti horizontalaus
+slinkimo galimybe. Taciau zemiau esanti telefono taisykle pakeicia sia
+elgsena mazuose ekranuose ir lentele pertvarko i korteles.
+
+
+3. TELEFONO TAISYKLIU BLOKAS
+---------------------------
+
+@media (max-width: 600px) {
+    ...
+}
+
+@media yra CSS media query. Ji leidzia pritaikyti stilius tik tam tikromis
+salygomis.
+
+(max-width: 600px) reiskia, kad viduje esancios taisykles taikomos, kai
+naršykles lango plotis yra 600 pikseliu arba mazesnis. Didesniame lange
+lieka iprastas lenteles vaizdas.
+
+
+4. KONTEINERIO HORIZONTALUS ELGESYS TELEFONE
+--------------------------------------------
+
+.lenteles-slinkimas {
+    overflow: visible;
+}
+
+Tai perraso virs media query buvusia overflow-x: auto taisykle telefone.
+Korteliu vaizde papildomas horizontalus slinkimas nereikalingas, nes lenteles
+langeliai persidelioja i telpancia vertikalia struktura.
+
+
+5. LENTELE IR JOS DUOMENU SRITIS TAMPA BLOKAIS
+---------------------------------------------
+
+.lenteles-skyrius table,
+.lenteles-skyrius tbody {
+    display: block;
+    width: 100%;
+}
+
+Kablelis tarp selektoriu reiskia „ir taip pat“. Taisykle taikoma ir table,
+ir tbody elementams, kurie yra .lenteles-skyrius viduje.
+
+display: block;
+Elementas rodomas kaip iprastas blokas, o ne pagal iprastini lenteles
+stulpeliu ir eiluciu isdestyma. Tai leidzia mazame ekrane pertvarkyti lentele.
+
+width: 100%;
+Blokas uzima visa jam prieinama ploti.
+
+
+6. PASLEPIAMA ORIGINALI STULPELIU ANTRASTE
+-----------------------------------------
+
+.lenteles-skyrius thead {
+    display: none;
+}
+
+thead turi stulpeliu pavadinimus, kurie kompiuteryje rodomi vienoje eiluteje.
+Telefone tie patys pavadinimai bus rodomi prie kiekvienos reiksmes, todel
+atskira virsutine antraste slepiama.
+
+display: none;
+Elementas nerodomas ir jam nepaliekama vietos puslapyje.
+
+
+7. KIEKVIENA DUOMENU EILUTE TAMPA KORTELE
+----------------------------------------
+
+.lenteles-skyrius tbody tr {
+    display: block;
+    margin-bottom: 16px;
+    padding: 8px 12px;
+    border: 1px solid #cfd8d3;
+    border-radius: 12px;
+    background-color: #e6f0e9;
+}
+
+.lenteles-skyrius tbody tr
+Pasirenka kiekviena tr eilute, esancia tbody viduje ir .lenteles-skyrius
+sekcijoje.
+
+display: block;
+Kiekviena eilute rodoma kaip atskiras blokas. Kadangi tr atitinka viena
+marsruta, vienas marsrutas tampa viena kortele.
+
+margin-bottom: 16px;
+Palieka 16 pikseliu isorini tarpa po kortele, kad korteles nesusilietu.
+
+padding: 8px 12px;
+Sukuria vidine erdve: 8 px virsuje ir apacioje, 12 px kaireje ir desineje.
+
+border: 1px solid #cfd8d3;
+Prideda 1 px plocio vientisa sviesiai pilkai zalsva krasta.
+
+border-radius: 12px;
+Suapvalina korteles kampus 12 px spinduliu.
+
+background-color: #e6f0e9;
+Nustato sviesiai zalsva korteles fono spalva.
+
+
+8. KIEKVIENAS LANGLELIS DALINAMAS I PAVADINIMA IR REIKSME
+--------------------------------------------------------
+
+.lenteles-skyrius tbody td {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: 8px;
+    padding: 8px 0;
+    border: 0;
+    border-bottom: 1px solid #cfd8d3;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+display: grid;
+Paverčia langeli i CSS Grid konteineri. Grid leidzia patogiai isdestyti
+langelio pavadinima ir reiksme atskirose skiltyse.
+
+grid-template-columns: 7rem minmax(0, 1fr);
+Sukuria dvi skiltis:
+- pirma skilti sudaro 7rem plocio vieta pavadinimui;
+- antra skilti uzima likusia vieta reiksmei.
+
+rem yra CSS ilgio vienetas, susietas su puslapio baziniu srifto dydziu.
+minmax(0, 1fr) reiskia, kad antra skiltis gali susitraukti iki 0 minimumo,
+o likusia vieta uzima proporcingai. Nulis svarbus, kad ilgas tekstas
+nepriverstu skilties isplatinti puslapio.
+
+gap: 8px;
+Palieka 8 px tarpa tarp pavadinimo ir reiksmes skilciu.
+
+padding: 8px 0;
+Prideda langelio turiniui 8 px erdves virsuje ir apacioje, o sonuose
+papildomo tarpo neprideda.
+
+border: 0;
+Panaikina iprastini langelio krasta, kad nebutu dvigubu krastu nuo bendru
+lenteles stiliu.
+
+border-bottom: 1px solid #cfd8d3;
+Prideda apatine skiriamaja linija tarp lauku vienoje korteleje.
+
+text-align: left;
+Lygiuoja pavadinima ir reiksme prie kairiojo krasto, kad kortele butu lengvai
+skaitoma.
+
+overflow-wrap: anywhere;
+Prireikus leidzia ilga zodi ar marsruto teksta perlauzti bet kurioje vietoje.
+Tai padeda apsaugoti siaura kortele nuo issipletimo uz ekrano ribu.
+
+
+9. PASKUTINIO LANGELIO APATINES LINIJOS PASALINIMAS
+-------------------------------------------------
+
+.lenteles-skyrius tbody td:last-child {
+    border-bottom: 0;
+}
+
+:last-child parenka paskutini td elementa kiekvienoje lenteles eiluteje.
+Kadangi korteles viduje paskutiniam laukui nebereikia apacios skirtuko,
+border-bottom: 0 ji pasalina.
+
+
+10. AUTOMATISKAI PRIDEDAMAS LAUKELIO PAVADINIMAS
+-----------------------------------------------
+
+.lenteles-skyrius tbody td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #315c4b;
+}
+
+::before sukuria papildoma vaizdine dali pries td turini. Tai pseudo-elementas:
+jis sukuriamas CSS, o ne atskiru HTML elementu.
+
+content: attr(data-label);
+attr() paima HTML elemento atributo reiksme. Jei HTML yra:
+
+<td data-label="Atstumas">11,5 km</td>
+
+pries „11,5 km“ CSS parodo „Atstumas“.
+
+Svarbu: HTML atributo pavadinimas data-label turi sutapti su pavadinimu
+skliaustuose attr(data-label). Jei vienoje vietoje pavadinimas pakeiciamas,
+reikia pakeisti ir kitoje vietoje.
+
+font-weight: bold;
+Padaro pavadinima ryskesni, kad jis skirtusi nuo reiksmes.
+
+color: #315c4b;
+Nustato pavadinimo teksto spalva i tamsiai zalia.
+
+
+11. KAIP VISAS SPRENDIMAS VEIKIA KARTU
+-------------------------------------
+
+Kompiuteryje narsykle rodo iprastine lentele su antrastemis ir stulpeliais.
+Kai langas susiaureja iki 600 px ar maziau:
+
+1. thead paslepiamas.
+2. Kiekviena tbody tr eilute tampa atskira kortele.
+3. Kiekvienas td tampa dvieju skilciu Grid konteineriu.
+4. CSS pseudo-elementas parodo data-label atributo pavadinima.
+5. Reiksme lieka salia pavadinimo, o ilgas tekstas gali persikelti i kelias
+   eilutes.
+6. Korteles telpa viena po kitos vertikaliai, todel nereikia slinkti per visa
+   puslapi horizontaliai.
+
+
+12. KAIP TOKI SPRENDIMA SUSIKURTI PACIAM
+---------------------------------------
+
+1. Patikrink HTML struktura: kiekvienas duomenu irasas turi buti tr elemente,
+   o jo reiksmes td elementuose.
+2. Kiekvienam td parasyk data-label su to langelio pavadinimu.
+3. Pirmiausia nustatyk, kokio plocio ekrane lentele pradeda nebetilpti.
+4. Sukurk @media (max-width: ...) taisykle siam ekrano plociui.
+5. Toje taisykleje pakeisk tr rodymo buda i atskirus blokus/korteles.
+6. Langeliams naudok Grid, kad pavadinimas ir reiksme butu atskirose skiltyse.
+7. Su ::before ir attr(data-label) parodyk kiekvieno langelio pavadinima.
+8. Patikrink bent 320 px, 375 px ir 600 px plocius.
+9. Patikrink, ar puslapis neissiplecia horizontaliai ir ar visi duomenys
+   skaitomi.
+
+Svarbiausia mintis: platiame ekrane duomenys lyginami stulpeliais, o telefone
+tas pats turinys pateikiamas kaip vertikalios korteles.
