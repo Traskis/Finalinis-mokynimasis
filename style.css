@@ -1,3 +1,8 @@
+body {
+    color: #E6EFEB;
+    background-color: #101A1C;
+}
+
 header {
     display: flex;
     justify-content:space-between;
@@ -7,7 +12,7 @@ header {
     padding-inline: clamp(15px, 4vw, 50px);
 
 
-    background-color: #f2e8d5;
+    background-color: rgba(112, 214, 190, 0.08);
     border-radius: 20px;
 }
 aside section {
@@ -15,21 +20,22 @@ aside section {
 }
 
 h1 {
-    color: #315c4b;
+    color: #70D6BE;
 }
 header h1{
     font-size: clamp(2rem, 3vw, 3rem);
 }
 a {
-    color: #397c78;
+    color: #70D6BE;
     text-decoration: none;
 }
 a:hover {
-    color: #234b3b;
+    color: #F2B866;
     text-decoration: underline;
 }
 a[aria-current="page"] {
-    background-color: #dce8c8;
+    background-color: rgba(242, 184, 102, 0.14);
+    color: #F2B866;
     border-radius: 20px;
     padding-left: 5px;
     padding-right: 5px;
@@ -43,7 +49,7 @@ a[aria-current="page"] {
     gap: 5px;
     align-items: center;
     justify-content: center;
-    background-color: #d5e7df;
+    background-color: rgba(112, 214, 190, 0.12);
     border-radius: 50%;
     position: relative;
     
@@ -57,7 +63,7 @@ label span {
     display: block;
     width: 20px;
     height: 2px;
-    background-color: #315c4b;
+    background-color: #70D6BE;
 }
 #mygtukas {
     display: none;
@@ -117,27 +123,35 @@ aside img {
 
 .main-korteles {
     display: grid;
-    grid-template-columns:
-    repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
 
     gap: clamp(10px, 2vw, 20px);
 }
 .main-korteles a {
-    background-color: #e6f0e9;
+    background-color: rgba(112, 214, 190, 0.08);
     padding: 10px;
     border-radius: 15px;
     text-align: center;
     transition: transform 500ms ease;
 }
 .main-korteles a:hover {
-    background-color: #397c78;
+    background-color: #F2B866;
     text-decoration: none;
-    color: #fffaf0;
+    color: #101A1C;
     transform: translateY(-10px);
-    box-shadow: 10px 10px 20px #9aab9e;
+    box-shadow: 10px 10px 20px rgba(242, 184, 102, 0.2);
 }
+/*gamta kortelei taisykle */
+@media (min-width: 601px) {
+    .main-korteles a:last-child {
+        grid-column: 1 / -1;
+        width: 50%;
+        justify-self: center;
+    }
+}
+
 table {
-    color: #1a1f1c;
+    color: #70D6BE;
     border-radius: 10px;
     width: 100%;
 }
@@ -149,11 +163,12 @@ table, th, td {
     border-collapse: collapse; /*padaro vienos linijos lentele */
 }
 th {
-    background-color: #315c4b;
+    background-color: #70D6BE;
+    color: #101A1C;
     font-size: large;
 }
 tbody tr:hover {
-    background-color: #f2e3c9;
+    background-color: rgba(112, 214, 190, 0.12);
 }
 .lenteles-skyrius:has(input[value="lengvi"]:checked)
 tbody tr:not(.lengvas)
@@ -171,8 +186,8 @@ tbody tr:not(.sunkus)
     display: none;
 }
 footer {
-    background-color: #397c78;
-    color: #f2e3c9;
+    background-color: #70D6BE;
+    color: #101A1C;
     text-align: center;
     padding: 5px;
     margin-top: 10px;
@@ -181,14 +196,14 @@ footer {
 .field-setas {
     border-radius: 20px;
     text-align: center;
-    background-color: #e6f0e9;
+    background-color: rgba(112, 214, 190, 0.08);
     padding: 15px;
     margin-bottom: 20px;
 }
 
 .rekomendacija {
     display: none;
-    background-color: #5fdba9;
+    background-color: rgba(242, 184, 102, 0.16);
     padding: 5px;
     border-radius: 10px;
 }
@@ -210,7 +225,7 @@ aside:has(option[value="4"]:checked) .rekomendacija[data-laikas="4"]
 }
 
 .galerijos-nuotrauka {
-    background-color: #5fdba9;
+    background-color: rgba(112, 214, 190, 0.1);
     padding: 10px;
     border-radius: 10px;
     
@@ -220,13 +235,13 @@ aside:has(option[value="4"]:checked) .rekomendacija[data-laikas="4"]
 }
 
 .galerijos-nuotrauka.lengvas {
-    background-color: #9be59b;
+    background-color: rgba(112, 214, 190, 0.15);
 }
 .galerijos-nuotrauka.vidutinis {
-    background-color: #ffd966;
+    background-color: rgba(242, 184, 102, 0.14);
 }
 .galerijos-nuotrauka.sunkus {
-    background-color: #ffb3b3;
+    background-color: rgba(242, 184, 102, 0.26);
 }
 
 .galerijos-nuotrauka:hover
@@ -261,7 +276,7 @@ main:has(input[value="sunkus"]:checked)
 }
 .galerijos-tinklelis figure {
     text-align: center;
-    box-shadow: 10px 10px 20px #9aab9e;
+    box-shadow: 10px 10px 20px rgba(112, 214, 190, 0.14);
     transition: transform 500ms ease;
     
 }
@@ -274,7 +289,7 @@ main:has(input[value="sunkus"]:checked)
     width: 100%;
     max-width: 400px;
     height: 200px;
-    background-color: blue;
+    background-color: #101A1C;
     position: relative; /*tai pasakojog tai bus atskaitos taskas kitiems */ 
     overflow: hidden; /*tas kas islenda uz ekrano paslepiama */
     border-radius: 10px;
@@ -285,7 +300,7 @@ main:has(input[value="sunkus"]:checked)
     width: 600px;
     height: 100px;
     border-radius: 50%;
-    background-color: rgb(0, 187, 255);
+    background-color: #70D6BE;
     position: absolute;
     top: 120px;
     animation: bangavimas 2s infinite alternate ease-in-out;
@@ -296,7 +311,7 @@ main:has(input[value="sunkus"]:checked)
     width: 600px;
     height: 100px;
     border-radius: 50%;
-    background-color: rgb(15, 32, 219);
+    background-color: #F2B866;
     position: absolute;
     top: 140px;
     animation: bangavimas 3s infinite alternate-reverse ease-in-out;
@@ -316,7 +331,7 @@ main:has(input[value="sunkus"]:checked)
     ir tai tampa kvadratas */
     aspect-ratio: 1;
     
-    background-color: yellow;
+    background-color: #F2B866;
     border-radius: 50%;
 
     position: absolute;
@@ -351,14 +366,14 @@ main:has(input[value="sunkus"]:checked)
     overflow: hidden;
     text-align: center;
     border-radius: 20px;
-    box-shadow: 10px 10px 20px #9aab9e;
+    box-shadow: 10px 10px 20px rgba(112, 214, 190, 0.14);
 }
 .gamtos-kortele {
     position: relative;
     overflow: hidden;
     text-align: center;
     border-radius: 20px;
-    box-shadow: 10px 10px 20px #9aab9e;
+    box-shadow: 10px 10px 20px rgba(112, 214, 190, 0.14);
 }
 .uzdanga {
     position: absolute;
@@ -368,8 +383,8 @@ main:has(input[value="sunkus"]:checked)
     bottom: -100%;
     transition: bottom 500ms ease;
 
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
+    background-color: rgba(16, 26, 28, 0.9);
+    color: #70D6BE;
     width: 100%;
     box-sizing: border-box;
     padding: 15px;
@@ -398,7 +413,7 @@ main:has(input[value="sunkus"]:checked)
 
 /*galerijos aside */
 aside {
-    background-color: #e6f0e9;
+    background-color: rgba(112, 214, 190, 0.08);
     padding: clamp(15px, 2vw, 25px);
     margin-top: 10px;
     border-radius: 20px;
@@ -414,24 +429,24 @@ aside img {
     margin-bottom: 10px;
 }
 .lygis.lengvas {
-    background-color: #9be59b;
+    background-color: rgba(112, 214, 190, 0.15);
 }
 .lygis.vidutinis {
-    background-color: #ffd966;
+    background-color: rgba(242, 184, 102, 0.14);
 }
 .lygis.sunkus {
-    background-color: #ff9e9e;
+    background-color: rgba(242, 184, 102, 0.26);
 }
 
 .galerijos-antraste {
     text-align: center;
-    background-color: #e6f0e9;
+    background-color: rgba(112, 214, 190, 0.08);
     padding: 20px;
     margin-top: 10px;
     border-radius: 20px;
     margin-bottom: 20px;
 
-    box-shadow: 10px 10px 20px #cfd8d3;
+    box-shadow: 10px 10px 20px rgba(112, 214, 190, 0.12);
 }
 .galerijos-antraste h1 {
     font-size: clamp(2rem, 4vw, 4rem);
@@ -465,12 +480,15 @@ aside img {
     }
     nav {
         display: none;
-        background-color: #315c4b;
+        background-color: #101A1C;
         top: 60px;
-        right: 80px;
+        right: 50px;
         padding: 10px;
         border-radius: 20px;
         position: absolute;
+    }
+    nav a {
+        color: #70D6BE;
     }
     input:checked ~ nav {
         display: flex;
@@ -529,9 +547,9 @@ aside img {
         margin-bottom: 8px;
         margin-top: 8px;
         padding: 12px;
-        border: 1px solid #28c971;
+        border: 1px solid rgba(112, 214, 190, 0.55);
         border-radius: 12px;
-        background-color: #e6f0e9;
+        background-color: rgba(112, 214, 190, 0.08);
     }
     .lenteles-skyrius tbody td {
         display: grid;
@@ -542,7 +560,7 @@ aside img {
         /*panaikina lenteles linijas */
         border: 0;
 
-        border-bottom: 1px solid #157b43;
+        border-bottom: 1px solid rgba(112, 214, 190, 0.32);
         text-align: center;
         /*lauzo teksta betkur
         ypac labai mazam ekrane */
@@ -550,7 +568,7 @@ aside img {
     }
     .lenteles-skyrius tbody td::before {
         content: attr(data-label);
-        color: #315c4b;
+        color: #F2B866;
     }
 
 }
